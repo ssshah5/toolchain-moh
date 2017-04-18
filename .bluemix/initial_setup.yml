@@ -1,0 +1,39 @@
+---
+stages:
+- name: Setup scripts
+  inputs:
+  - service: ${SAMPLE_REPO}
+    type: git
+    branch: ibm-devops
+    dir_name: null
+  triggers:
+  - type: commit
+  properties:
+  - name: ENV_PROPERTIES
+    value: '{"CLAMAV_ENDPOINT":"169.44.118.126","CRYPTO_PASSWORD":"123412341234123421342134123412341234123412341234123412341234123412341234123423","JWT_TOKEN_SECRET_KEY":"1234123412341234123412412341234123412341234123412341234124123412","PHIX_ENDPOINT_DICTIONARY":"https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Dictionary?domain=","PHIX_ENDPOINT_RETRIEVAL":"https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Immunization","PHIX_ENDPOINT_RETRIEVAL_TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTcxMTE1OTAsInN1YiI6ImFzZGZzZGFmIiwiaXNzIjoiYXNkZmFzZGYiLCJhdWQiOiJhc2RmYXNkZiIsImp0aSI6ImFzZGZhc2RmIiwiaWF0IjoxNDY1NTc1NTkwfQ.asdfasdfasdfasdfasdfasdfasdfasdfasdf","PHIX_ENDPOINT_SUBMISSION":"https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Communication","PHIX_ENDPOINT_SUBMISSION_TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTcxMTE1OTAsInN1YiI6ImFzZGZzZGFmIiwiaXNzIjoiYXNkZmFzZGYiLCJhdWQiOiJhc2RmYXNkZiIsImp0aSI6ImFzZGZhc2RmIiwiaWF0IjoxNDY1NTc1NTkwfQ.asdfasdfasdfasdfasdfasdfasdfasdfasdf","POSTGRES_READONLY_ROLE":"readonly:WERJFIRWJWNEDJASDF","TZ":"America/Toronto"}'
+    type: text_area
+  jobs:
+  - name: Deploy
+    type: deployer
+    target:
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+      application: ${CF_APP_NAME1}
+    script: |
+      #!/bin/sh
+
+      export PATH=/opt/IBM/node-v6.7.0/bin:$PATH
+      echo ${ENV_PROPERTIES} >> creds.json
+
+      npm i child_process
+
+      node scripts/one-time-setup.js
+      ./scripts/create_user_provided_service.sh creds.json
+
+      #node scripts/env.js
+hooks:
+- enabled: true
+  label: null
+  ssl_enabled: false
+  url: https://devops-api.ng.bluemix.net/v1/messaging/webhook/publish
