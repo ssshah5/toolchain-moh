@@ -1,0 +1,34 @@
+---
+stages:
+- name: Build ICON Kibana
+  inputs:
+  - service: ${SAMPLE_REPO}
+    type: git
+    branch: master
+    dir_name: null
+  jobs:
+  - name: Build
+    type: builder
+- name: Deploy ICON Kibana
+  inputs:
+  - type: job
+    stage: Build ICON Kibana
+    job: Build
+    dir_name: null
+  triggers:
+  - type: stage
+  jobs:
+  - name: Deploy
+    type: deployer
+    target:
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+      application: ${CF_APP_NAME}
+    script: "#!/bin/bash\ncf push \"${CF_APP}\" -f bluemix/dev-manifest.yml -n icon-kibana-devops\
+      \ -d mybluemix.net \n"
+hooks:
+- enabled: true
+  label: null
+  ssl_enabled: false
+  url: https://devops-api.ng.bluemix.net/v1/messaging/webhook/publish
