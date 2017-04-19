@@ -33,9 +33,34 @@ services:
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
     execute: false
+  icon-r2-psql-db-repo:
+    service_id: githubpublic
+    parameters:
+      repo_url: 'https://github.com/MOHLTC11/icon-r2-initial-db-docs'
+      type: link
+      has_issues: false
+      enable_traceability: false
+  icon-r2-psql-db-pipeline:
+    service_id: pipeline
+    parameters:
+      services:
+        - icon-r2-psql-db-repo
+      name: 'icon-r2-psql-db-pipeline'
+      configuration:
+        content:
+          $ref: psql_scripts.yml
+          $refType: text
+        env:
+          SAMPLE_REPO: icon-r2-psql-db-repo
+          CF_APP_NAME1: '{{form.pipeline.parameters.psql-db-app-name}}'
+          PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
+          PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
+          PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
+    execute: false
 form:
   pipeline:
     parameters:
       server-app-name: 'icon-r2-server'
+      psql-db-app-name: 'icon-r2-initial-db-docs'
     schema:
       $ref: deploy.json
