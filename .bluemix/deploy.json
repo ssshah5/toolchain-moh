@@ -26,27 +26,6 @@
             "description": "The bluemix space",
             "type": "string"
         },
-        "frontend-nginx-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription"
-            },
-            "type": "string",
-            "pattern": "\\S"
-        },
-        "dhir-nginx-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription"
-            },
-            "type": "string",
-            "pattern": "\\S"
-        },
-        "kibana-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription"
-            },
-            "type": "string",
-            "pattern": "\\S"
-        },
         "server-app-name": {
             "description": {
                 "$ref": "#/messages/deploy.appDescription"
@@ -54,14 +33,7 @@
             "type": "string",
             "pattern": "\\S"
         },
-        "server-worker-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription"
-            },
-            "type": "string",
-            "pattern": "\\S"
-        },
-        "clamav-app-name": {
+        "psql-db-app-name": {
             "description": {
                 "$ref": "#/messages/deploy.appDescription"
             },
@@ -73,41 +45,13 @@
         "prod-region",
         "prod-organization",
         "prod-space",
-        "frontend-nginx-app-name",
-        "dhir-nginx-app-name",
-        "kibana-app-name",
         "server-app-name",
-        "server-worker-app-name",
-        "clamav-app-name"
+        "psql-db-app-name"
     ],
     "form": [
         {
             "type": "validator",
             "url": "/devops/setup/bm-helper/helper.html"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName.frontend-nginx"
-            },
-            "key": "frontend-nginx-app-name"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName.dhir-nginx"
-            },
-            "key": "dhir-nginx-app-name"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName.kibana"
-            },
-            "key": "kibana-app-name"
         },
         {
             "type": "text",
@@ -121,17 +65,9 @@
             "type": "text",
             "readonly": false,
             "title": {
-                "$ref": "#/messages/deploy.appName.server-worker"
+                "$ref": "#/messages/deploy.appName.psql-db"
             },
-            "key": "server-worker-app-name"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName.clamav"
-            },
-            "key": "clamav-app-name"
+            "key": "psql-db-app-name"
         },
         {
             "type": "table",
