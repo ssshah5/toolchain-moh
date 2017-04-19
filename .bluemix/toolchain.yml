@@ -20,7 +20,7 @@ services:
     parameters:
       services:
         - icon-r2-server-repo
-      name: 'icon-r2-backend-pipeline'
+      name: 'icon-r2-server-pipeline'
       configuration:
         content:
           $ref: initial_setup.yml
@@ -28,7 +28,6 @@ services:
         env:
           SAMPLE_REPO: icon-r2-server-repo
           CF_APP_NAME1: '{{form.pipeline.parameters.server-app-name}}'
-          CF_APP_NAME2: '{{form.pipeline.parameters.server-worker-app-name}}'
           PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
