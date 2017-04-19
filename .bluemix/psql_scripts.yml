@@ -11,9 +11,9 @@ stages:
     type: builder
     extension_id: ibm.devops.services.pipeline.container.builder
     target:
-      region_id: ibm:yp:us-south
-      organization: PHDPexperimental
-      space: ICONDevOps
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
     COMMAND: "#!/bin/bash\n# The following colors have been defined to help with presentation\
       \ of logs: green, red, label_color, no_color.  \nlog_and_echo \"$LABEL\" \"\
       Starting build script\"\n\n# The IBM Container BM Containers plug-in (cf ic),\
