@@ -26,14 +26,7 @@
             "description": "The bluemix space",
             "type": "string"
         },
-        "server-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription"
-            },
-            "type": "string",
-            "pattern": "\\S"
-        },
-        "psql-db-app-name": {
+        "initial-setup-app-name": {
             "description": {
                 "$ref": "#/messages/deploy.appDescription"
             },
@@ -45,8 +38,7 @@
         "prod-region",
         "prod-organization",
         "prod-space",
-        "server-app-name",
-        "psql-db-app-name"
+        "initial-setup-app-name"
     ],
     "form": [
         {
@@ -57,17 +49,9 @@
             "type": "text",
             "readonly": false,
             "title": {
-                "$ref": "#/messages/deploy.appName.server"
+                "$ref": "#/messages/deploy.appName.initial-setup"
             },
-            "key": "server-app-name"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName.psql-db"
-            },
-            "key": "psql-db-app-name"
+            "key": "initial-setup-app-name"
         },
         {
             "type": "table",

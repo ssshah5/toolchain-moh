@@ -8,50 +8,26 @@ template:
 toolchain:
   name: icon2-initial-setup-toolchain-{{timestamp}}
 services:
-  icon-r2-server-repo:
+  icon-r2-init-setup-repo:
     service_id: githubpublic
     parameters:
-      repo_url: 'https://github.com/MOHLTC11/icon-r2-backend'
+      repo_url: 'https://github.com/MOHLTC11/icon-r2-init-setup'
       type: link
       has_issues: false
       enable_traceability: false
-  icon-r2-server-pipeline:
+  icon-r2-init-setup-pipeline:
     service_id: pipeline
     parameters:
       services:
-        - icon-r2-server-repo
-      name: 'icon-r2-server-pipeline'
+        - icon-r2-init-setup-repo
+      name: 'icon-r2-init-setup-pipeline'
       configuration:
         content:
-          $ref: initial_setup.yml
+          $ref: init-setup.yml
           $refType: text
         env:
-          SAMPLE_REPO: icon-r2-server-repo
-          CF_APP_NAME1: '{{form.pipeline.parameters.server-app-name}}'
-          PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
-          PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
-          PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
-    execute: false
-  icon-r2-psql-db-repo:
-    service_id: githubpublic
-    parameters:
-      repo_url: 'https://github.com/MOHLTC11/icon-r2-initial-db-docs'
-      type: link
-      has_issues: false
-      enable_traceability: false
-  icon-r2-psql-db-pipeline:
-    service_id: pipeline
-    parameters:
-      services:
-        - icon-r2-psql-db-repo
-      name: 'icon-r2-psql-db-pipeline'
-      configuration:
-        content:
-          $ref: psql_scripts.yml
-          $refType: text
-        env:
-          SAMPLE_REPO: icon-r2-psql-db-repo
-          CF_APP_NAME1: '{{form.pipeline.parameters.psql-db-app-name}}'
+          SAMPLE_REPO: icon-r2-init-setup-repo
+          CF_APP_NAME1: '{{form.pipeline.parameters.init-setup-app-name}}'
           PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
@@ -59,7 +35,6 @@ services:
 form:
   pipeline:
     parameters:
-      server-app-name: 'icon-r2-server'
-      psql-db-app-name: 'icon-r2-initial-db-docs'
+      init-setup-app-name: 'icon-r2-init-setup'
     schema:
       $ref: deploy.json
