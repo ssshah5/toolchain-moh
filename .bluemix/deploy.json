@@ -131,7 +131,7 @@
               },
               {
                  "type": "label",
-                 "title": "PHIX Dictionary"
+                 "title": "PHIX Endpoint Retrieval Token"
               },
               {
                  "type": "text",
@@ -144,7 +144,7 @@
 
               {
                  "type": "label",
-                 "title": "PHIX Submission"
+                 "title": "PHIX Submission Token"
               },
               {
                  "type": "label",
@@ -152,11 +152,11 @@
               },
               {
                  "type": "text",
-                 "key": "PHIX_ENDPOINT_SUBMISSION"
+                 "key": "endpoint_submission_token"
               },
               {
                  "type": "text",
-                 "key": "PHIX_ENDPOINT_DICTIONARY"
+                 "key": "endpoint_dictionary"
               }
             ]
           },
