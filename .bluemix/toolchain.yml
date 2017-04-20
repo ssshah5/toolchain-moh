@@ -1,7 +1,7 @@
 version: 2
 template:
-  name: ICON r2 Initial Setup Toolchain Template
-  description: This Toolchain is for the initial setup.  Each deployment is tagged.
+  name: ICON R2 Initial Setup Toolchain Template
+  description: This Toolchain is for the initial setup, including provisioning of Postgres, RabbitMQ and ElasticSearch.
   info:
     git url: '[https://git.ng.bluemix.net/ankitadk/toolchain-moh](https://git.ng.bluemix.net/ankitadk/toolchain-moh)'
     git branch: '[master](https://git.ng.bluemix.net/ankitadk/toolchain-moh/tree/master)'
@@ -31,7 +31,8 @@ services:
           CRYPTO_PASSWORD: '{{form.pipeline.parameters.crypto-password}}'
           JWT_TOKEN_SECRET_KEY: '{{form.pipeline.parameters.jwt-secret}}'
           PHIX_ENDPOINT_DICTIONARY: '{{form.pipeline.parameters.endpoint_dictionary}}'
-          PHIX_ENDPOINT_SUBMISSION: '{{form.pipeline.parameters.endpoint_submission}}'
+          PHIX_ENDPOINT_RETRIEVAL: '{{form.pipeline.parameters.endpoint_retrieval}}'
+          PHIX_ENDPOINT_RETRIEVAL_TOKEN: '{{form.pipeline.parameters.endpoint_retrieval_token}}'
           PHIX_ENDPOINT_SUBMISSION_TOKEN: '{{form.pipeline.parameters.endpoint_submission_token}}'
           POSTGRES_READONLY_ROLE: '{{form.pipeline.parameters.postgres_readonly_role}}'
           TZ: '{{form.pipeline.parameters.tz}}'
@@ -45,10 +46,11 @@ form:
     parameters:
       init-setup-app-name: 'icon-r2-init-setup'
       clamav-endpoint: '169.44.118.126'
-      crypto-password: '<token>'
+      crypto-password: '<password>'
       jwt-secret: '1234123412341234123412412341234123412341234123412341234124123412'
       endpoint_dictionary: 'https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Dictionary?domain='
-      endpoint_submission: 'https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Immunization'
+      endpoint_retrieval: 'https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Immunization'
+      endpoint_retrieval_token: '<token>'
       endpoint_submission_token: '<token>'
       postgres_readonly_role: 'readonly:WERJFIRWJWNEDJASDF'
       tz: 'America/Toronto'

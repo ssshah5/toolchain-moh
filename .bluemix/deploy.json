@@ -30,7 +30,7 @@
           "description": "description",
           "type": "string"
         },
-        "endpoint_submission": {
+        "endpoint_retreival": {
           "description": "description",
           "type": "string"
         },
@@ -71,7 +71,7 @@
         "crypto-password",
         "jwt-secret",
         "endpoint_dictionary",
-        "endpoint_submission",
+        "endpoint_retrieval",
         "endpoint_submission_token",
         "postgres_readonly_role",
         "tz",
@@ -113,30 +113,6 @@
             "type": "text",
             "readonly": false,
             "title": {
-                "$ref": "#/messages/deploy.endpoint_dictionary"
-            },
-            "key": "endpoint_dictionary"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.endpoint_submission"
-            },
-            "key": "endpoint_submission"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.endpoint_submission_token"
-            },
-            "key": "endpoint_submission_token"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
                 "$ref": "#/messages/deploy.postgres_readonly_role"
             },
             "key": "postgres_readonly_role"
@@ -158,6 +134,49 @@
             "key": "initial-setup-app-name"
         },
         {
+            "type": "table",
+            "columnCount": 2,
+            "widths": [
+                "50%",
+                "50%"
+            ],
+            "items": [
+              {
+                 "type": "label",
+                 "title": "PHIX Endpoint Retreival"
+              },
+              {
+                 "type": "label",
+                 "title": "PHIX Dictionary"
+              },
+              {
+                 "type": "text",
+                 "key": "endpoint_retrieval"
+              },
+              {
+                 "type": "text",
+                 "key": "endpoint_retrieval_token"
+              },
+
+              {
+                 "type": "label",
+                 "title": "PHIX Submission"
+              },
+              {
+                 "type": "label",
+                 "title": "PHIX Dictionary"
+              },
+              {
+                 "type": "text",
+                 "key": "PHIX_ENDPOINT_SUBMISSION"
+              },
+              {
+                 "type": "text",
+                 "key": "PHIX_ENDPOINT_DICTIONARY"
+              }
+            ]
+          }
+          {
             "type": "table",
             "columnCount": 4,
             "widths": [

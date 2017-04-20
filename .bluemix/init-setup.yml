@@ -24,9 +24,12 @@ stages:
   - name: PHIX_ENDPOINT_RETRIEVAL
     type: text
     value: ${PHIX_ENDPOINT_RETRIEVAL}
-  - name: PHIX_ENDPOINT_SUBMISSION
+  - name: PHIX_ENDPOINT_RETRIEVAL_TOKEN
     type: text
-    value: ${PHIX_ENDPOINT_SUBMISSION}
+    value: ${PHIX_ENDPOINT_RETRIEVAL_TOKEN}
+  - name: PHIX_ENDPOINT_SUBMISSION_TOKEN
+    type: text
+    value: ${PHIX_ENDPOINT_SUBMISSION_TOKEN}
   - name: POSTGRES_READONLY_ROLE
     type: text
     value: ${POSTGRES_READONLY_ROLE}
