@@ -30,7 +30,7 @@
           "description": "description",
           "type": "string"
         },
-        "endpoint_retreival": {
+        "endpoint_retrieval": {
           "description": "description",
           "type": "string"
         },
@@ -57,13 +57,6 @@
         "prod-space": {
             "description": "The bluemix space",
             "type": "string"
-        },
-        "initial-setup-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription"
-            },
-            "type": "string",
-            "pattern": "\\S"
         }
     },
     "required": [
@@ -77,8 +70,7 @@
         "tz",
         "prod-region",
         "prod-organization",
-        "prod-space",
-        "initial-setup-app-name"
+        "prod-space"
     ],
     "form": [
         {
@@ -126,14 +118,6 @@
             "key": "tz"
         },
         {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName.initial-setup"
-            },
-            "key": "initial-setup-app-name"
-        },
-        {
             "type": "table",
             "columnCount": 2,
             "widths": [
@@ -143,7 +127,7 @@
             "items": [
               {
                  "type": "label",
-                 "title": "PHIX Endpoint Retreival"
+                 "title": "PHIX Endpoint Retrieval"
               },
               {
                  "type": "label",
@@ -178,18 +162,13 @@
           },
           {
             "type": "table",
-            "columnCount": 4,
+            "columnCount": 3,
             "widths": [
-                "15%",
-                "28%",
-                "28%",
-                "28%"
+                "34%",
+                "33%",
+                "33%"
             ],
             "items": [
-                {
-                    "type": "label",
-                    "title": ""
-                },
                 {
                     "type": "label",
                     "title": {
@@ -206,12 +185,6 @@
                     "type": "label",
                     "title": {
                         "$ref": "#/messages/space"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/prodStage"
                     }
                 },
                 {
