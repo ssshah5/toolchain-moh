@@ -9,30 +9,30 @@ stages:
   triggers:
   - type: commit
   properties:
-    - name: CLAMAV_ENDPOINT
-      type: text
-      value: ${CLAMAV_ENDPOINT}
-    - name: CRYPTO_PASSWORD
-      type: text
-      value: ${CRYPTO_PASSWORD}
-    - name: JWT_TOKEN_SECRET_KEY
-      type: text
-      value: ${JWT_TOKEN_SECRET_KEY}
-    - name: PHIX_ENDPOINT_DICTIONARY
-      type: text
-      value: ${PHIX_ENDPOINT_DICTIONARY}
-    - name: PHIX_ENDPOINT_RETRIEVAL
-      type: text
-      value: ${PHIX_ENDPOINT_RETRIEVAL}
-    - name: PHIX_ENDPOINT_SUBMISSION
-      type: text
-      value: ${PHIX_ENDPOINT_SUBMISSION}
-    - name: POSTGRES_READONLY_ROLE
-      type: text
-      value: ${POSTGRES_READONLY_ROLE}
-    - name: TZ
-      type: text
-      value: ${TZ}
+  - name: CLAMAV_ENDPOINT
+    type: text
+    value: ${CLAMAV_ENDPOINT}
+  - name: CRYPTO_PASSWORD
+    type: text
+    value: ${CRYPTO_PASSWORD}
+  - name: JWT_TOKEN_SECRET_KEY
+    type: text
+    value: ${JWT_TOKEN_SECRET_KEY}
+  - name: PHIX_ENDPOINT_DICTIONARY
+    type: text
+    value: ${PHIX_ENDPOINT_DICTIONARY}
+  - name: PHIX_ENDPOINT_RETRIEVAL
+    type: text
+    value: ${PHIX_ENDPOINT_RETRIEVAL}
+  - name: PHIX_ENDPOINT_SUBMISSION
+    type: text
+    value: ${PHIX_ENDPOINT_SUBMISSION}
+  - name: POSTGRES_READONLY_ROLE
+    type: text
+    value: ${POSTGRES_READONLY_ROLE}
+  - name: TZ
+    type: text
+    value: ${TZ}
   - name: ENV_PROPERTIES
     value: '{"CLAMAV_ENDPOINT":"169.44.118.126","CRYPTO_PASSWORD":"123412341234123421342134123412341234123412341234123412341234123412341234123423","JWT_TOKEN_SECRET_KEY":"1234123412341234123412412341234123412341234123412341234124123412","PHIX_ENDPOINT_DICTIONARY":"https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Dictionary?domain=","PHIX_ENDPOINT_RETRIEVAL":"https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Immunization","PHIX_ENDPOINT_RETRIEVAL_TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTcxMTE1OTAsInN1YiI6ImFzZGZzZGFmIiwiaXNzIjoiYXNkZmFzZGYiLCJhdWQiOiJhc2RmYXNkZiIsImp0aSI6ImFzZGZhc2RmIiwiaWF0IjoxNDY1NTc1NTkwfQ.asdfasdfasdfasdfasdfasdfasdfasdfasdf","PHIX_ENDPOINT_SUBMISSION":"https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Communication","PHIX_ENDPOINT_SUBMISSION_TOKEN":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTcxMTE1OTAsInN1YiI6ImFzZGZzZGFmIiwiaXNzIjoiYXNkZmFzZGYiLCJhdWQiOiJhc2RmYXNkZiIsImp0aSI6ImFzZGZhc2RmIiwiaWF0IjoxNDY1NTc1NTkwfQ.asdfasdfasdfasdfasdfasdfasdfasdfasdf","POSTGRES_READONLY_ROLE":"readonly:WERJFIRWJWNEDJASDF","TZ":"America/Toronto"}'
     type: text_area
