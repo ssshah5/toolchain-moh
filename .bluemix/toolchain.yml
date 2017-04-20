@@ -27,6 +27,14 @@ services:
           $refType: text
         env:
           SAMPLE_REPO: icon-r2-init-setup-repo
+          CLAMAV_ENDPOINT: '{{form.pipeline.parameters.clamav-endpoint}}'
+          CRYPTO_PASSWORD: '{{form.pipeline.parameters.crypto-password}}'
+          JWT_TOKEN_SECRET_KEY: '{{form.pipeline.parameters.jwt-secret}}'
+          PHIX_ENDPOINT_DICTIONARY: '{{form.pipeline.parameters.endpoint_dictionary}}'
+          PHIX_ENDPOINT_SUBMISSION: '{{form.pipeline.parameters.endpoint_submission}}'
+          PHIX_ENDPOINT_SUBMISSION_TOKEN: '{{form.pipeline.parameters.endpoint_submission_token}}'
+          POSTGRES_READONLY_ROLE: '{{form.pipeline.parameters.postgres_readonly_role}}'
+          TZ: '{{form.pipeline.parameters.tz}}'
           CF_APP_NAME1: '{{form.pipeline.parameters.init-setup-app-name}}'
           PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
@@ -36,5 +44,13 @@ form:
   pipeline:
     parameters:
       init-setup-app-name: 'icon-r2-init-setup'
+      clamav-endpoint: '169.44.118.126'
+      crypto-password: '<token>'
+      jwt-secret: '1234123412341234123412412341234123412341234123412341234124123412'
+      endpoint_dictionary: 'https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Dictionary?domain='
+      endpoint_submission: 'https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Immunization'
+      endpoint_submission_token: '<token>'
+      postgres_readonly_role: 'readonly:WERJFIRWJWNEDJASDF'
+      tz: 'America/Toronto'
     schema:
       $ref: deploy.json

@@ -14,6 +14,38 @@
     },
     "type": "object",
     "properties": {
+        "clamav-endpoint": {
+          "description": "CLAMAV endpoint",
+          "type": "string"
+        },
+        "crypto-password": {
+          "description": "description",
+          "type": "string"
+        },
+        "jwt-secret": {
+          "description": "description",
+          "type": "string"
+        },
+        "endpoint_dictionary": {
+          "description": "description",
+          "type": "string"
+        },
+        "endpoint_submission": {
+          "description": "description",
+          "type": "string"
+        },
+        "endpoint_submission_token": {
+          "description": "description",
+          "type": "string"
+        },
+        "postgres_readonly_role": {
+          "description": "description",
+          "type": "string"
+        },
+        "tz": {
+          "description": "Timezone",
+          "type": "string"
+        },
         "prod-region": {
             "description": "The bluemix region",
             "type": "string"
@@ -35,6 +67,14 @@
         }
     },
     "required": [
+        "clamav-endpoint",
+        "crypto-password",
+        "jwt-secret",
+        "endpoint_dictionary",
+        "endpoint_submission",
+        "endpoint_submission_token",
+        "postgres_readonly_role",
+        "tz",
         "prod-region",
         "prod-organization",
         "prod-space",
@@ -44,6 +84,70 @@
         {
             "type": "validator",
             "url": "/devops/setup/bm-helper/helper.html"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.clamav-endpoint"
+            },
+            "key": "clamav-endpoint"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.crypto-password"
+            },
+            "key": "crypto-password"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.jwt-secret"
+            },
+            "key": "jwt-secret"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.endpoint_dictionary"
+            },
+            "key": "endpoint_dictionary"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.endpoint_submission"
+            },
+            "key": "endpoint_submission"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.endpoint_submission_token"
+            },
+            "key": "endpoint_submission_token"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.postgres_readonly_role"
+            },
+            "key": "postgres_readonly_role"
+        },
+        {
+            "type": "text",
+            "readonly": false,
+            "title": {
+                "$ref": "#/messages/deploy.tz"
+            },
+            "key": "tz"
         },
         {
             "type": "text",
