@@ -27,6 +27,9 @@ stages:
   - name: PHIX_ENDPOINT_RETRIEVAL_TOKEN
     type: text
     value: ${PHIX_ENDPOINT_RETRIEVAL_TOKEN}
+  - name: PHIX_ENDPOINT_SUBMISSION
+    type: text
+    value: ${PHIX_ENDPOINT_SUBMISSION}
   - name: PHIX_ENDPOINT_SUBMISSION_TOKEN
     type: text
     value: ${PHIX_ENDPOINT_SUBMISSION_TOKEN}

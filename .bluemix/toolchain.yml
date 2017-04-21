@@ -33,6 +33,7 @@ services:
           PHIX_ENDPOINT_DICTIONARY: '{{form.pipeline.parameters.endpoint_dictionary}}'
           PHIX_ENDPOINT_RETRIEVAL: '{{form.pipeline.parameters.endpoint_retrieval}}'
           PHIX_ENDPOINT_RETRIEVAL_TOKEN: '{{form.pipeline.parameters.endpoint_retrieval_token}}'
+          PHIX_ENDPOINT_SUBMISSION: '{{form.pipeline.parameters.endpoint_submission}}'
           PHIX_ENDPOINT_SUBMISSION_TOKEN: '{{form.pipeline.parameters.endpoint_submission_token}}'
           POSTGRES_READONLY_ROLE: '{{form.pipeline.parameters.postgres_readonly_role}}'
           TZ: '{{form.pipeline.parameters.tz}}'

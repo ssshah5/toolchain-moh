@@ -34,6 +34,10 @@
           "description": "description",
           "type": "string"
         },
+        "endpoint_submission": {
+          "description": "description",
+          "type": "string"
+        },
         "endpoint_submission_token": {
           "description": "description",
           "type": "string"
@@ -65,6 +69,7 @@
         "jwt-secret",
         "endpoint_dictionary",
         "endpoint_retrieval",
+        "endpoint_submission",
         "endpoint_submission_token",
         "postgres_readonly_role",
         "tz",
@@ -141,18 +146,25 @@
                  "type": "text",
                  "key": "endpoint_retrieval_token"
               },
-
+              {
+                 "type": "label",
+                 "title": "PHIX Endpoint Submission"
+              },
               {
                  "type": "label",
                  "title": "PHIX Submission Token"
               },
               {
-                 "type": "label",
-                 "title": "PHIX Dictionary"
+                  "type": "text",
+                  "key": "endpoint_submission"
               },
               {
                  "type": "text",
                  "key": "endpoint_submission_token"
+              },
+              {
+                 "type": "label",
+                 "title": "PHIX Dictionary"
               },
               {
                  "type": "text",
