@@ -52,6 +52,7 @@ form:
       endpoint_dictionary: 'https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Dictionary?domain='
       endpoint_retrieval: 'https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Immunization'
       endpoint_retrieval_token: '<token>'
+      endpoint_submission: 'https://dhir-nginx-devops.mybluemix.net/API/FHIR/Immunizations/v2/Communication'
       endpoint_submission_token: '<token>'
       postgres_readonly_role: 'readonly:WERJFIRWJWNEDJASDF'
       tz: 'America/Toronto'
