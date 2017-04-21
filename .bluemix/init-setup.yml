@@ -40,7 +40,7 @@ stages:
     type: text
     value: ${TZ}
   jobs:
-  - name: Deploy
+  - name: Create Services
     type: deployer
     target:
       region_id: ${PROD_REGION_ID}
@@ -55,14 +55,7 @@ stages:
 
       node scripts/one-time-setup.js
       ./scripts/create_user_provided_service.sh
-- name: Build PSQL
-  inputs:
-  - service: ${SAMPLE_REPO}
-    type: git
-    branch: ibm-devops
-    dir_name: null
-  jobs:
-  - name: Build
+  - name: Build PSQL
     type: builder
     extension_id: ibm.devops.services.pipeline.container.builder
     target:
@@ -100,7 +93,8 @@ stages:
       \ $(get_error_info)\"\n    exit 1\nfi\n\n######################################################################################\n\
       # Copy any artifacts that will be needed for deployment and testing to $WORKSPACE\
       \    #\n######################################################################################\n\
-      echo \"IMAGE_NAME=${FULL_REPOSITORY_NAME}\" >> $ARCHIVE_DIR/build.properties\n"
+      cp ./scripts/rm_psql.sh  $ARCHIVE_DIR/rm_psql.sh\necho \"IMAGE_NAME=${FULL_REPOSITORY_NAME}\"\
+      \ >> $ARCHIVE_DIR/build.properties"
     IMAGE_NAME: icon_psql
     USE_CACHED_LAYERS: 'true'
 - name: Deploy PSQL
@@ -174,7 +168,7 @@ stages:
       # The following colors have been defined to help with presentation of logs:\
       \ green, red, label_color, no_color.\nif [ $RESULT -ne 0 ]; then\n    echo -e\
       \ \"${red}Executed failed or had warnings ${no_color}\"\n    ${EXT_DIR}/print_help.sh\n\
-      \    exit $RESULT\nfi\necho -e \"${green}Execution complete${no_label}\""
+      \    exit $RESULT\nfi\n./rm_psql.sh\necho -e \"${green}Execution complete${no_label}\""
     OPTIONAL_ARGS: --env CCS_BIND_SRV=icon-postgresql
     PORT: '80'
     CONTAINER_NAME: icon_psql_devops
