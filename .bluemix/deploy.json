@@ -167,6 +167,10 @@
                  "title": "PHIX Dictionary"
               },
               {
+                "type": "",
+                "title": ""
+              },
+              {
                  "type": "text",
                  "key": "endpoint_dictionary"
               }
