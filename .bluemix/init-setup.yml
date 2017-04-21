@@ -100,8 +100,8 @@ stages:
 - name: Deploy PSQL
   inputs:
   - type: job
-    stage: Build PSQL
-    job: Build
+    stage: Setup scripts
+    job: Build PSQL
     dir_name: null
   triggers:
   - type: stage
