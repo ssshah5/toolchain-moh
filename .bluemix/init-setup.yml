@@ -13,10 +13,10 @@ stages:
     type: text
     value: ${CLAMAV_ENDPOINT}
   - name: CRYPTO_PASSWORD
-    type: text
+    type: secure
     value: ${CRYPTO_PASSWORD}
   - name: JWT_TOKEN_SECRET_KEY
-    type: text
+    type: secure
     value: ${JWT_TOKEN_SECRET_KEY}
   - name: PHIX_ENDPOINT_DICTIONARY
     type: text
@@ -25,13 +25,13 @@ stages:
     type: text
     value: ${PHIX_ENDPOINT_RETRIEVAL}
   - name: PHIX_ENDPOINT_RETRIEVAL_TOKEN
-    type: text
+    type: secure
     value: ${PHIX_ENDPOINT_RETRIEVAL_TOKEN}
   - name: PHIX_ENDPOINT_SUBMISSION
     type: text
     value: ${PHIX_ENDPOINT_SUBMISSION}
   - name: PHIX_ENDPOINT_SUBMISSION_TOKEN
-    type: text
+    type: secure
     value: ${PHIX_ENDPOINT_SUBMISSION_TOKEN}
   - name: POSTGRES_READONLY_ROLE
     type: text
