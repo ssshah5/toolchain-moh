@@ -40,8 +40,9 @@ stages:
     type: text
     value: ${TZ}
   jobs:
-  - name: Create Services
+  - name: Create Elastic search service
     type: deployer
+    fail_stage: false
     target:
       region_id: ${PROD_REGION_ID}
       organization: ${PROD_ORG_NAME}
@@ -53,7 +54,50 @@ stages:
       export PATH=/opt/IBM/node-v6.7.0/bin:$PATH
       npm i child_process
 
-      node scripts/one-time-setup.js
+      node scripts/one-time-setup.js compose-for-elasticsearch icon-elasticsearch
+  - name: Create PostgreSQL service
+    type: deployer
+    fail_stage: false
+    target:
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+      application: ${CF_APP_NAME1}
+    script: |
+      #!/bin/sh
+
+      export PATH=/opt/IBM/node-v6.7.0/bin:$PATH
+      npm i child_process
+
+      node scripts/one-time-setup.js compose-for-postgresql icon-postgresql
+  - name: Create Rabbit-MQ service
+    type: deployer
+    fail_stage: false
+    target:
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+      application: ${CF_APP_NAME1}
+    script: |
+      #!/bin/sh
+
+      export PATH=/opt/IBM/node-v6.7.0/bin:$PATH
+      npm i child_process
+
+      node scripts/one-time-setup.js compose-for-rabbitmq icon-rabbitmq
+  - name: Create user provided service
+    type: deployer
+    fail_stage: false
+    target:
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+      application: ${CF_APP_NAME1}
+    script: |
+      #!/bin/sh
+
+      export PATH=/opt/IBM/node-v6.7.0/bin:$PATH
+      
       ./scripts/create_user_provided_service.sh
   - name: Build PSQL
     type: builder
