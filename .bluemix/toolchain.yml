@@ -3,8 +3,8 @@ template:
   name: ICON R2 Initial Setup Toolchain Template
   description: This Toolchain is for the initial setup, including provisioning of Postgres, RabbitMQ and ElasticSearch.
   info:
-    git url: '[https://git.ng.bluemix.net/ankitadk/toolchain-moh](https://git.ng.bluemix.net/ankitadk/toolchain-moh)'
-    git branch: '[master](https://git.ng.bluemix.net/ankitadk/toolchain-moh/tree/master)'
+    git url: '[https://github.com/kulkarniankitaibm/toolchain-moh](https://github.com/kulkarniankitaibm/toolchain-moh)'
+    git branch: '[master](https://github.com/kulkarniankitaibm/toolchain-moh/tree/master)'
 toolchain:
   name: icon2-initial-setup-toolchain-{{timestamp}}
 services:
