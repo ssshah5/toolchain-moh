@@ -3,15 +3,9 @@
     "messages": {
         "$i18n": "locales.yml"
     },
-    "title": {
-        "$ref": "#/messages/deploy.title"
-    },
-    "description": {
-        "$ref": "#/messages/deploy.description"
-    },
-    "longDescription": {
-        "$ref": "#/messages/deploy.longDescription"
-    },
+    "title": "Deploy Stage",
+    "description": "Toolchain",
+    "longDescription": "This delivery pipeline automates the initial provisioning of services required for ICON R2.",
     "type": "object",
     "properties": {
         "clamav-endpoint": {
@@ -90,41 +84,31 @@
         {
             "type": "text",
             "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.clamav-endpoint"
-            },
+            "title": "CLAMAV Endpoint",
             "key": "clamav-endpoint"
         },
         {
             "type": "text",
             "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.crypto-password"
-            },
+            "title": "Crypto Password",
             "key": "crypto-password"
         },
         {
             "type": "text",
             "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.jwt-secret"
-            },
+            "title": "JWT Secret",
             "key": "jwt-secret"
         },
         {
             "type": "text",
             "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.postgres_readonly_role"
-            },
+            "title": "Postgres read only role",
             "key": "postgres_readonly_role"
         },
         {
             "type": "text",
             "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.tz"
-            },
+            "title": "Timezone",
             "key": "tz"
         },
         {
@@ -192,21 +176,15 @@
             "items": [
                 {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/region"
-                    }
+                    "title": "Region"
                 },
                 {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/organization"
-                    }
+                    "title": "Organization"
                 },
                 {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/space"
-                    }
+                    "title": "Space"
                 },
                 {
                     "type": "select",
