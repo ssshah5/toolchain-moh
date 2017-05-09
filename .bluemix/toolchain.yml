@@ -1,3 +1,4 @@
+version: 2
 template:
   name: ICON R2 Initial Setup Toolchain Template
   description: This Toolchain is for the initial setup, including provisioning of Postgres, RabbitMQ and ElasticSearch.
