@@ -6,7 +6,7 @@ template:
     git url: '[https://github.com/kulkarniankitaibm/toolchain-moh](https://github.com/kulkarniankitaibm/toolchain-moh)'
     git branch: '[master](https://github.com/kulkarniankitaibm/toolchain-moh/tree/master)'
 toolchain:
-  name: icon2-initial-setup-toolchain
+  name: icon2-initial-setup-toolchain-abc
 services:
   icon-r2-init-setup-repo:
     service_id: githubpublic
