@@ -101,7 +101,7 @@ stages:
       ./scripts/create_user_provided_service.sh
 - name: Deploy PSQL
   inputs:
-  - url: ${SAMPLE_REPO}
+  - service: ${SAMPLE_REPO}
     type: git
     branch: ibm-devops
     dir_name: null
