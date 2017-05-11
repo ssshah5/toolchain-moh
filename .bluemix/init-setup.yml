@@ -8,6 +8,7 @@ stages:
     dir_name: null
   triggers:
   - type: commit
+  - enabled: false
   properties:
   - name: CLAMAV_ENDPOINT
     type: text
@@ -107,6 +108,7 @@ stages:
     dir_name: null
   triggers:
   - type: stage
+  - enabled: false
   jobs:
   - name: Deploy
     type: deployer
