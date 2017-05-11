@@ -7,7 +7,8 @@ stages:
     branch: ibm-devops
     dir_name: null
   triggers:
-  - enabled: false
+  - type: stage
+    enabled: false
   properties:
   - name: CLAMAV_ENDPOINT
     type: text
@@ -106,7 +107,8 @@ stages:
     branch: ibm-devops
     dir_name: null
   triggers:
-  - enabled: false
+  - type: stage
+    enabled: false
   jobs:
   - name: Deploy
     type: deployer
